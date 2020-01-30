@@ -2,6 +2,7 @@ import requests
 import bs4
 import random
 import string
+import re
 
 base_url = 'https://www.azlyrics.com/'
 
@@ -48,8 +49,9 @@ user_agents = [
 def get_artists_links():
     available_letters = list(string.ascii_lowercase)
     available_letters.append('19')  # To get artists that start with a number
+    selected_letter = random.choice(available_letters)
 
-    url = base_url + random.choice(available_letters) + '.html'
+    url = base_url + selected_letter + '.html'
     selected_agent = random.choice(user_agents)
     req = requests.get(url, headers={'User-Agent': selected_agent})
 
@@ -91,3 +93,37 @@ def get_artist_name_and_song(artist_link):
     selected_song = random.choice(songs)
 
     return artist_name, selected_song
+
+
+def get_lyrics(song_link):
+    url = base_url + song_link
+    selected_agent = random.choice(user_agents)
+    req = requests.get(url, headers={'User-Agent': selected_agent})
+
+    scraped_objects = bs4.BeautifulSoup(req.content, "html.parser")
+
+    lyrics = scraped_objects.find_all('div', attrs={'class': None, 'id': None})
+
+    lyrics = [line.getText() for line in lyrics]
+    lyrics = ''.join(lyrics)  # Converting the list to a string
+    lyrics = lyrics.split('\n\n')  # Splitting lyrics to individual blocks
+    lyrics = [line.strip() for line in lyrics]  # Removing edge spaces
+
+    temp_lyrics = []
+
+    # Removing square brackets
+    for line in lyrics:
+        formatted_line = re.sub(r'\[.*?\]', '', line)
+        formatted_line = formatted_line.strip()
+        if formatted_line != '':
+            temp_lyrics.append(formatted_line)
+
+    lyrics = temp_lyrics
+    temp_lyrics = []
+
+    for block in lyrics:
+        temp_lyrics.append(block.split('\n'))
+
+    lyrics = temp_lyrics
+
+    return lyrics
