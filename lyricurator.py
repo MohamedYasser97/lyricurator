@@ -1,18 +1,26 @@
+import time
 import tweepy
 from tweet_util import *
 
-# Authenticate Twitter account
-auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
-                           'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
 
-auth.set_access_token('1223203700040175616-5m0hCCA03wGaGQ6BvjlnAGcvpkk8rz',
-                      '4Wau7gTnyzWG2rQ9TrgumbIxUDEAnWK85DbJnDR52Kf4D')
+def do_magic():
+    # Authenticate Twitter account
+    auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
+                               'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
 
-api = tweepy.API(auth)
+    auth.set_access_token('1223203700040175616-5m0hCCA03wGaGQ6BvjlnAGcvpkk8rz',
+                          '4Wau7gTnyzWG2rQ9TrgumbIxUDEAnWK85DbJnDR52Kf4D')
 
-artist, song_name, lyrics = prepare_tweet_content()
+    api = tweepy.API(auth)
 
-tweet = get_tweet_string(artist, song_name, lyrics)
+    artist, song_name, lyrics = prepare_tweet_content()
 
-# Send the tweet
-api.update_status(tweet)
+    tweet = get_tweet_string(artist, song_name, lyrics)
+
+    # Send the tweet
+    api.update_status(tweet)
+
+
+while True:
+    do_magic()
+    time.sleep(1800)
