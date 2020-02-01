@@ -1,13 +1,9 @@
+import time
 import tweepy
-from flask import Flask
 from tweet_util import *
 
 
-app = Flask(__name__)
-
-
-@app.route('/elR55hgw')
-def run_job():
+def do_magic():
     # Authenticate Twitter account
     auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
                                'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
@@ -24,8 +20,7 @@ def run_job():
     # Send the tweet
     api.update_status(tweet)
 
-    return 'OK'
 
-
-if __name__ == '__main__':
-    app.run()
+while True:
+    do_magic()
+    time.sleep(1800)
