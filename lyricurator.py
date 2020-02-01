@@ -1,33 +1,18 @@
-from lyrics_util import *
+import tweepy
+from tweet_util import *
 
+# Authenticate Twitter account
+auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
+                           'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
 
-def prepare_tweet():
-    while True:
-        artists = get_artists_links()
+auth.set_access_token('1223203700040175616-5m0hCCA03wGaGQ6BvjlnAGcvpkk8rz',
+                      '4Wau7gTnyzWG2rQ9TrgumbIxUDEAnWK85DbJnDR52Kf4D')
 
-        if not artists:
-            continue
+api = tweepy.API(auth)
 
-        try:
-            selected_artist = random.choice(artists)
-        except IndexError:
-            continue
+artist, song_name, lyrics = prepare_tweet_content()
 
-        # 'selected_song' is a tuple where 1st is song name and 2nd is its link
-        artist_name, selected_song = get_artist_name_and_song(selected_artist)
+tweet = get_tweet_string(artist, song_name, lyrics)
 
-        if not artist_name or not selected_song:
-            continue
-
-        song_lyrics = get_lyrics(selected_song[1])
-
-        if not song_lyrics:
-            continue
-
-        lyrics_portion = get_lyrics_portion(song_lyrics)
-
-        if lyrics_portion:
-            return artist_name, selected_song[0], lyrics_portion
-
-
-print(prepare_tweet())
+# Send the tweet
+api.update_status(tweet)
