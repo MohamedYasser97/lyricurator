@@ -8,7 +8,10 @@ def prepare_tweet():
         if not artists:
             continue
 
-        selected_artist = random.choice(artists)
+        try:
+            selected_artist = random.choice(artists)
+        except IndexError:
+            continue
 
         # 'selected_song' is a tuple where 1st is song name and 2nd is its link
         artist_name, selected_song = get_artist_name_and_song(selected_artist)

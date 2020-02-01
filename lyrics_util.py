@@ -90,7 +90,13 @@ def get_artist_name_and_song(artist_link):
         for a in links:
             songs.append((a.text.strip(), a['href'].split('/', 1)[1]))
 
-    selected_song = random.choice(songs)
+    try:
+        selected_song = random.choice(songs)
+    except IndexError:
+        selected_song = ''
+
+    if not selected_song:
+        return '', ''
 
     return artist_name, selected_song
 
