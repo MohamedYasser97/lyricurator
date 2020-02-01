@@ -3,7 +3,7 @@ import tweepy
 from tweet_util import *
 
 
-def do_magic():
+while True:
     # Authenticate Twitter account
     auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
                                'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
@@ -20,7 +20,4 @@ def do_magic():
     # Send the tweet
     api.update_status(tweet)
 
-
-while True:
-    do_magic()
     time.sleep(1800)
