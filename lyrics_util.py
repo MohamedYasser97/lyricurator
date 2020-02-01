@@ -115,15 +115,47 @@ def get_lyrics(song_link):
     for line in lyrics:
         formatted_line = re.sub(r'\[.*?\]', '', line)
         formatted_line = formatted_line.strip()
+
         if formatted_line != '':
             temp_lyrics.append(formatted_line)
 
     lyrics = temp_lyrics
     temp_lyrics = []
 
+    # Splitting each block into lines
     for block in lyrics:
         temp_lyrics.append(block.split('\n'))
 
-    lyrics = temp_lyrics
+    lyrics = []
+
+    # Last check for special characters
+    for block in temp_lyrics:
+        temp_block = []
+        for line in block:
+            formatted_line = line.replace('\r', '')
+            formatted_line = formatted_line.replace('\t', '')
+            formatted_line = formatted_line.replace('\n', '')
+            formatted_line = formatted_line.replace('\\', '')
+
+            if formatted_line != '':
+                temp_block.append(formatted_line)
+
+        lyrics.append(temp_block)
 
     return lyrics
+
+
+def get_lyrics_portion(lyrics):
+    selected_block = random.choice(lyrics)
+
+    # The block is already small to begin with
+    if len(selected_block) < 3:
+        return selected_block
+
+    # Give a minimum choice space of 3 lyric lines. '-2' because exclusive range
+    start_index = random.randrange(0, len(selected_block) - 2)
+
+    # Select from 2 to 3 lines (inclusive) from the selected block
+    end_index = start_index + random.randrange(1, 3) + 1
+
+    return selected_block[start_index:end_index]
