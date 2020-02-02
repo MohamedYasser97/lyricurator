@@ -1,1 +1,1 @@
-worker: python lyricurator.py
+web: gunicorn app:app
