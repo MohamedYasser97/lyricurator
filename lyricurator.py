@@ -21,5 +21,5 @@ api.update_status(tweet)
 
 now = datetime.now()
 print('Tweet Sent | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
-print('-' * 35)
+print('-' * 40)
 
