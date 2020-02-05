@@ -4,11 +4,11 @@ from tweet_util import *
 
 
 # Authenticate Twitter account
-auth = tweepy.OAuthHandler('UooCn40p2qSs3YRNXW54kliVt',
-                           'l14v1E9vjvGT3tNamWqzxoH2ObWMcZaI7Uwpg1ZdY9k9urOD4R')
+auth = tweepy.OAuthHandler('ddnsdyRVRFLjPFsfbIV7kCgo0',
+                           'UCv62xY76M0AMFULs9BFRGrhZuj4RM2wvkT9PwRpToqEOGkSYJ')
 
-auth.set_access_token('1223203700040175616-5m0hCCA03wGaGQ6BvjlnAGcvpkk8rz',
-                      '4Wau7gTnyzWG2rQ9TrgumbIxUDEAnWK85DbJnDR52Kf4D')
+auth.set_access_token('1223203700040175616-rmVFV5k7P13QMwxwRlArta6agtmD2I',
+                      'D25aILraVldNYeij3tQNk6Tyfgeh19a45ogq4COXHKKZD')
 
 api = tweepy.API(auth)
 
