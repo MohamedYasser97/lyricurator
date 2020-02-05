@@ -1,4 +1,5 @@
 import tweepy
+from datetime import datetime
 from tweet_util import *
 
 
@@ -18,4 +19,7 @@ tweet = get_tweet_string(artist, song_name, lyrics)
 # Send the tweet
 api.update_status(tweet)
 
+now = datetime.now()
+print('Tweet Sent | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
+print('-' * 35)
 
