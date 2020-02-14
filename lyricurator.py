@@ -26,3 +26,6 @@ try:
 except requests.ConnectionError:
     now = datetime.now()
     print('Connection Error | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
+except tweepy.error.TweepError:
+    now = datetime.now()
+    print('Tweet Error | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
