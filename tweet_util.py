@@ -1,8 +1,10 @@
+import time
 from lyrics_util import *
 
 
 def prepare_tweet_content():
     while True:
+        time.sleep(3)
         artists = get_artists_links()
 
         if not artists:
