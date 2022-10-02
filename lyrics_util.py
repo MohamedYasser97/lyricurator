@@ -1,3 +1,4 @@
+import time
 import requests
 import bs4
 import random
@@ -53,6 +54,8 @@ def get_artists_links():
 
     url = base_url + selected_letter + '.html'
     selected_agent = random.choice(user_agents)
+
+    time.sleep(2)
     req = requests.get(url, headers={'User-Agent': selected_agent})
 
     scraped_objects = bs4.BeautifulSoup(req.content, "html.parser")

@@ -1,19 +1,18 @@
-import argparse
 import json
 import tweepy
+import sys
 from datetime import datetime
+from lyrics_util import get_artists_links
 from tweet_util import *
+from console_args import CONSOLE_ARGS
+
 
 try:
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-nt', '--notwitter', action= 'store_true', help='Prints lyrics to console instead of tweeting them')
-    args = parser.parse_args()
-
     artist, song_name, lyrics = prepare_tweet_content()
 
     tweet = get_tweet_string(artist, song_name, lyrics)
 
-    if args.notwitter:
+    if CONSOLE_ARGS.notwitter:
         print(tweet)
     else:
         with open("auth.json", "r") as f:

@@ -1,5 +1,6 @@
 import time
 from lyrics_util import *
+from console_args import CONSOLE_ARGS
 
 
 def prepare_tweet_content():
@@ -11,7 +12,10 @@ def prepare_tweet_content():
             continue
 
         try:
-            selected_artist = random.choice(artists)
+            if CONSOLE_ARGS.artist:
+                selected_artist = CONSOLE_ARGS.artist[0] + '/' + CONSOLE_ARGS.artist + '.html'
+            else:
+                selected_artist = random.choice(artists)
         except IndexError:
             continue
 
