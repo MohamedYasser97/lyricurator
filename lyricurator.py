@@ -7,6 +7,12 @@ from tweet_util import *
 from console_args import CONSOLE_ARGS
 
 
+if CONSOLE_ARGS.listartists:
+    artist_links = get_artists_links()
+    artist_names = [(x.rsplit('/',1)[1]).rsplit('.',1)[0] for x in artist_links]
+    print(*artist_names, sep='\n')
+    sys.exit()
+
 try:
     artist, song_name, lyrics = prepare_tweet_content()
 
