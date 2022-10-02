@@ -1,14 +1,16 @@
+import json
 import tweepy
 from datetime import datetime
 from tweet_util import *
 
 try:
-    # Authenticate Twitter account
-    auth = tweepy.OAuthHandler('ddnsdyRVRFLjPFsfbIV7kCgo0',
-                               'UCv62xY76M0AMFULs9BFRGrhZuj4RM2wvkT9PwRpToqEOGkSYJ')
+    with open("auth.json", "r") as f:
+        auth_creds = json.load(f)
 
-    auth.set_access_token('1223203700040175616-rmVFV5k7P13QMwxwRlArta6agtmD2I',
-                          'D25aILraVldNYeij3tQNk6Tyfgeh19a45ogq4COXHKKZD')
+    # Authenticate Twitter account
+    auth = tweepy.OAuthHandler(auth_creds['api_key'], auth_creds['api_key_secret'])
+
+    auth.set_access_token(auth_creds['access_token'], auth_creds['access_token_secret'])
 
     api = tweepy.API(auth)
 
