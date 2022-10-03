@@ -14,13 +14,23 @@ if CONSOLE_ARGS.listartists:
     sys.exit()
 
 try:
-    artist, song_name, lyrics = prepare_tweet_content()
-
-    tweet = get_tweet_string(artist, song_name, lyrics)
-
-    if CONSOLE_ARGS.notwitter:
+    if CONSOLE_ARGS.notwitter and CONSOLE_ARGS.fullsong:
+        artist, song_name, lyrics = prepare_tweet_content(full_song=True)
+        tweet = get_tweet_string(artist, song_name, lyrics)
+        print(tweet)
+    elif CONSOLE_ARGS.fullsong:
+        CONSOLE_ARGS.notwitter=True
+        artist, song_name, lyrics = prepare_tweet_content(full_song=True)
+        tweet = get_tweet_string(artist, song_name, lyrics)
+        print(tweet)
+        print("\nFull song lyrics can't be tweeted")
+    elif CONSOLE_ARGS.notwitter:
+        artist, song_name, lyrics = prepare_tweet_content()
+        tweet = get_tweet_string(artist, song_name, lyrics)
         print(tweet)
     else:
+        artist, song_name, lyrics = prepare_tweet_content()
+        tweet = get_tweet_string(artist, song_name, lyrics)
         with open("auth.json", "r") as f:
             auth_creds = json.load(f)
 
