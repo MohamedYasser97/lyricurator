@@ -3,7 +3,7 @@ from lyrics_util import *
 from console_args import CONSOLE_ARGS
 
 
-def prepare_tweet_content():
+def prepare_tweet_content(full_song=False):
     while True:
         time.sleep(3)
         artists = get_artists_links()
@@ -29,6 +29,9 @@ def prepare_tweet_content():
 
         if not song_lyrics:
             continue
+        if full_song:
+            full_lyrics=get_full_lyrics(song_lyrics)
+            return artist_name,selected_song[0],full_lyrics
 
         lyrics_portion = get_lyrics_portion(song_lyrics)
 
