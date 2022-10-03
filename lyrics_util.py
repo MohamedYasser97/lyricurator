@@ -168,3 +168,7 @@ def get_lyrics_portion(lyrics):
     end_index = start_index + random.randrange(1, 3) + 1
 
     return selected_block[start_index:end_index]
+
+def get_full_lyrics(lyrics):
+    full_lyrics=['\n'.join(block) for block in lyrics]
+    return full_lyrics
