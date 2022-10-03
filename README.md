@@ -15,6 +15,13 @@ Hacktoberfest 2022 is finally here, and we're pretty excited about it. We think 
 
 Hacktoberfest is an annual festival hosted by DigitalOcean that takes place in the month of October to celebrate the open source community. As part of this 31-day celebration, contributors and open source maintainers are encouraged to work on open source projects and win swag to mark the occasion.
 
+### CLI Arguments:
+* **-nt :** *NoTwitter* (Prints lyrics to console instead of tweeting them)
+* **-la :** *ListArtists* (Gets a list of all artists)
+* **-a :** *Artist* (Specifies artist to get lyrics for) 
+* **-fs :** *FullSong* (Prints entire lyrics of song to console)
+
+
 #### Tips for Contributors:
 
 - PRs beyond our open issues are welcome but make sure your contributions are meaningful and beneficial to other users otherwise your PR may be closed and marked as ‘invalid’.
