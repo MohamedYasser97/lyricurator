@@ -27,6 +27,7 @@ You can learn more about how to get your own Twitter application credentials by 
 - `-a/--artist` specifies artist to get lyrics for.
 - `-fs/--fullsong` prints the entire lyrics of a song to the console.
 - `-ls/--listsongs` lists all songs for random or user-selected artists.
+- `-i/--interval` prints/tweets lyrics at specified interval in minutes
 
 
 ## Want to contribute?
