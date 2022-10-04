@@ -28,6 +28,15 @@ try:
         artist, song_name, lyrics = prepare_tweet_content()
         tweet = get_tweet_string(artist, song_name, lyrics)
         print(tweet)
+    elif CONSOLE_ARGS.listsongs and CONSOLE_ARGS.artist:
+        songs = get_songs_from_artist(CONSOLE_ARGS.artist)
+        print("Artist: " + CONSOLE_ARGS.artist)
+        print(*songs, sep = "\n")
+    elif CONSOLE_ARGS.listsongs:
+        random_artist = get_random_artist()
+        songs = get_songs_from_artist(random_artist)
+        print("Artist: " + random_artist)
+        print(*songs, sep = "\n")
     elif CONSOLE_ARGS.twitter:
         artist, song_name, lyrics = prepare_tweet_content()
         tweet = get_tweet_string(artist, song_name, lyrics)

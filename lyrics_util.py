@@ -172,3 +172,46 @@ def get_lyrics_portion(lyrics):
 def get_full_lyrics(lyrics):
     full_lyrics=['\n'.join(block) for block in lyrics]
     return full_lyrics
+
+def get_random_artist():
+    available_letters = list(string.ascii_lowercase)
+    available_letters.append('19')  # To get artists that start with a number
+    selected_letter = random.choice(available_letters)
+
+    url = base_url + selected_letter + '.html'
+    selected_agent = random.choice(user_agents)
+
+    time.sleep(2)
+    req = requests.get(url, headers={'User-Agent': selected_agent})
+
+    scraped_objects = bs4.BeautifulSoup(req.content, "html.parser")
+    artists = []
+
+    for div in scraped_objects.find_all('div',
+                                        {'class': 'container main-page'}):
+        links = div.find_all('a')
+
+        for a in links:
+            artists.append(a.string)
+
+    selected_artist = random.choice(artists)
+    
+    return selected_artist
+
+def get_songs_from_artist(artist):
+    artist = artist.lower().replace(" ", "")
+    first_char = artist[0]
+    url = base_url + first_char + "/" + artist + ".html"
+    selected_agent = random.choice(user_agents)
+    req = requests.get(url, headers={'User-Agent': selected_agent})
+    
+    soup = bs4.BeautifulSoup(req.content, 'html.parser')
+
+    all_songs = soup.find_all('div', class_='listalbum-item')
+    songs = []
+
+    for song in all_songs:
+        if song.string is not None:
+            songs.append(song.string)
+
+    return songs
