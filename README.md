@@ -15,9 +15,7 @@ In order to send lyrics to Twitter, you have to add the following credentials to
 
 ![enter image description here](https://i.imgur.com/zs3LAkI.png)
 
-Then you can start lyricurator without any arguments and a tweet will be sent.
-
-![enter image description here](https://i.imgur.com/zgsq1CL.png)
+Then you can start lyricurator with the `-t/--twitter` argument and a tweet will be sent.
 
 ![enter image description here](https://i.imgur.com/agau4aq.png)
 

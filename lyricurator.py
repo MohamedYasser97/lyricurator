@@ -4,7 +4,7 @@ import sys
 from datetime import datetime
 from lyrics_util import get_artists_links
 from tweet_util import *
-from console_args import CONSOLE_ARGS
+from console_args import CONSOLE_ARGS, PARSER
 
 
 if CONSOLE_ARGS.listartists:
@@ -37,7 +37,7 @@ try:
         songs = get_songs_from_artist(random_artist)
         print("Artist: " + random_artist)
         print(*songs, sep = "\n")
-    else:
+    elif CONSOLE_ARGS.twitter:
         artist, song_name, lyrics = prepare_tweet_content()
         tweet = get_tweet_string(artist, song_name, lyrics)
         with open("auth.json", "r") as f:
@@ -56,6 +56,8 @@ try:
         now = datetime.now()
         print('Tweet Sent | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
         print('-' * 40)
+    else:
+        PARSER.print_help()
 except requests.ConnectionError:
     now = datetime.now()
     print('Connection Error | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
