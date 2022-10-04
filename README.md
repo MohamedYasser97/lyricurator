@@ -1,122 +1,37 @@
-# What is Lyric Curator?
-A bot that looks for random lyrics of songs on the internet and post a part of it on social media. Made with python, this bot scrapes lyrics and automatically tweet it on the twitter page shown below. 
 
-[![official_website](https://www.linkpicture.com/q/Screenshot-2022-10-04-030204.png)](https://twitter.com/lyricurator)
+# Lyricurator
 
-# Want to contribute?
-
-## Hacktoberfest 2022
-
-You can contribute to this project under [Hacktoberfest 2022](https://hacktoberfest.com/) 💫
-
-![image](https://user-images.githubusercontent.com/70385488/192114009-0830321a-d227-4a4d-8411-6c03b54d7ce6.png)
-
-Hacktoberfest 2022 is finally here, and we're pretty excited about it. We think it's a great time to encourage, recognise and reward developers in the community who dedicate their time to creating for others.
-
-Hacktoberfest is an annual festival hosted by DigitalOcean that takes place in the month of October to celebrate the open source community. As part of this 31-day celebration, contributors and open source maintainers are encouraged to work on open source projects and win swag to mark the occasion.
-
-### CLI Arguments:
-* **-nt :** *NoTwitter* (Prints lyrics to console instead of tweeting them)
-* **-la :** *ListArtists* (Gets a list of all artists)
-* **-a :** *Artist* (Specifies artist to get lyrics for) 
-* **-fs :** *FullSong* (Prints entire lyrics of song to console)
+A bot that scrapes the internet for song lyrics, song names and artists. This program can be either used as a CLI tool to add lyrics to your terminal, or it can be linked with a Twitter account and tweet lyrics automatically. 
 
 
-#### Tips for Contributors:
+## Usage
 
-- PRs beyond our open issues are welcome but make sure your contributions are meaningful and beneficial to other users otherwise your PR may be closed and marked as ‘invalid’.
-- Issues before PRs. If you plan to make a contribution, please make sure there is an issue for it. You can either find an existing issue or open a new issue if none exists.
+After cloning this repository, you can run lyricurator in its most simple mode of operation
+`python lyricurator.py --notwitter` which will print random lyrics in the terminal.
 
+![enter image description here](https://i.imgur.com/Jmvp2ir.png)
 
-### If you are willing to contribute, please check the guide to local system setup given below.
+In order to send lyrics to Twitter, you have to add the following credentials to the file `auth.json`.
 
-Don't forget to check the [issue](https://github.com/MohamedYasser97/lyricurator/issues) section where we have already raised some issues for you to work on.
+![enter image description here](https://i.imgur.com/zs3LAkI.png)
 
-# How to Contribute :-
-Follow the steps below :-
+Then you can start lyricurator without any arguments and a tweet will be sent.
 
-# Git Setup Guide
-## To initialise Git, write
-```bash
-git init
-```
+![enter image description here](https://i.imgur.com/zgsq1CL.png)
 
-## 1. Configure your local Git
-```bash
-git config --global user.name "github username"
-```
+![enter image description here](https://i.imgur.com/agau4aq.png)
 
-```bash
-git config --global user.email "email address"
-```
+You can learn more about how to get your own Twitter application credentials by following [this guide](https://www.digitalocean.com/community/tutorials/how-to-create-a-twitter-app-with-python)'s first 2 steps.
 
-## 2.  Go to the first-contribution repository and Fork it.
-* A fork is a rough copy of a repository. Forking a repository allows you to freely test and debug with changes without affecting the original project. One of the excessive use of forking is to propose changes for bug fixing.
+#### Other CLI arguments you can use and combine:
+- `-nt/--notwitter` prints lyrics to the console instead of tweeting them.
+- `-la/--listartists` gets a list of all available artists.
+- `-a/--artist` specifies artist to get lyrics for.
+- `-fs/--fullsong` prints the entire lyrics of a song to the console.
+- `-ls/--listsongs` lists all songs for random or user-selected artists.
 
 
-* Click on Code Button and copy the URL of your forked Repository
+## Want to contribute?
 
-
-## 3. Switch to your Git bash window, and enter the following :
-
-* Clone the Forked project on your local system 
-
-```bash
-git clone https://github.com/MohamedYasser97/lyricurator.git
-```
-
-
-* Make the changes
-
-
-## 4. Creating a Pull request
-### Create a branch
-
-* A branch is designed to encapsulate a group of changes. These changes might be thrown away, entirely rewritten or in the majority of cases they’ll be promoted into the main history of the codebase - via a merge.
-
-
-* Creating a branch
-
-```bash
-git branch branch_name
-```
-
-* Checkout to the created branch
-
-```bash
-git checkout branch_name
-```
-
-
-* Now add the files using the git command
-
-```bash
-git add .
-```
-* Commit the changes to the local project
-
-```bash
-git commit -m "Added code"
-```
-
-* Push the changes to your forked github repo
-```bash
-git push origin branch_name
-```
-
-## 5. Final Steps
-* Open your forked git repository, you will get a message like as shown in the figure (if not then refresh the page).
-
-* Click on "Contribute"
-
-
-*  Now click on "Open pull request"
-
-
-
-*  Click on "Create pull request"
-
- * You may add a Comment to your Pull Request
-
-
-### You will get message which means that you have sucessfully made a pull request !
+Check out [CONTRIBUTING.md](https://github.com/MohamedYasser97/lyricurator/blob/master/CONTRIBUTING.md) for instructions.
+ 
