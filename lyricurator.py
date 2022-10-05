@@ -9,9 +9,7 @@ from console_args import CONSOLE_ARGS, PARSER
 def main():
     """ Main program. """
     if CONSOLE_ARGS.listartists:
-        artist_links = get_artists_links()
-        artist_names = [(x.rsplit('/',1)[1]).rsplit('.',1)[0] for x in artist_links]
-        print(*artist_names, sep='\n')
+        print(*get_artist_names(), sep='\n')
         sys.exit()
 
     try:
@@ -65,7 +63,7 @@ def main():
     except tweepy.error.TweepError:
         now = datetime.now()
         print('Tweet Error | ' + now.strftime("%d/%m/%Y %H:%M:%S"))
-        
+
 
 if __name__ == "__main__":
     if CONSOLE_ARGS.interval:

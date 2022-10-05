@@ -13,7 +13,8 @@ def prepare_tweet_content(full_song=False):
 
         try:
             if CONSOLE_ARGS.artist:
-                selected_artist = CONSOLE_ARGS.artist[0] + '/' + CONSOLE_ARGS.artist + '.html'
+                selected_artist = CONSOLE_ARGS.artist[0].lower() + '/' + CONSOLE_ARGS.artist.lower() + '.html'
+                print(selected_artist)
             else:
                 selected_artist = random.choice(artists)
         except IndexError:

@@ -195,7 +195,7 @@ def get_random_artist():
             artists.append(a.string)
 
     selected_artist = random.choice(artists)
-    
+
     return selected_artist
 
 def get_songs_from_artist(artist):
@@ -204,7 +204,7 @@ def get_songs_from_artist(artist):
     url = base_url + first_char + "/" + artist + ".html"
     selected_agent = random.choice(user_agents)
     req = requests.get(url, headers={'User-Agent': selected_agent})
-    
+
     soup = bs4.BeautifulSoup(req.content, 'html.parser')
 
     all_songs = soup.find_all('div', class_='listalbum-item')
@@ -215,3 +215,8 @@ def get_songs_from_artist(artist):
             songs.append(song.string)
 
     return songs
+
+def get_artist_names():
+    artist_links = get_artists_links()
+    artist_names = [(x.rsplit('/',1)[1]).rsplit('.',1)[0] for x in artist_links]
+    return artist_names
