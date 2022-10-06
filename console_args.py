@@ -1,5 +1,4 @@
 import argparse
-from re import T
 
 def _parse_arguments():
     parser = argparse.ArgumentParser()

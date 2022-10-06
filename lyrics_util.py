@@ -235,6 +235,5 @@ def get_hot_songs():
         links = div.find_all('a')
         for a in links:
             hot_songs.append(a.string)
-    for song in hot_songs:
-        print(song)
+    return hot_songs
 
