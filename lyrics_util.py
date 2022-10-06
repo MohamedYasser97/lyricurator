@@ -220,3 +220,20 @@ def get_artist_names():
     artist_links = get_artists_links()
     artist_names = [(x.rsplit('/',1)[1]).rsplit('.',1)[0] for x in artist_links]
     return artist_names
+
+def get_hot_songs():
+    url = base_url
+    selected_agent = random.choice(user_agents)
+    req = requests.get(url, headers={'User-Agent': selected_agent})
+
+    scraped_objects = bs4.BeautifulSoup(req.content, "html.parser")
+
+    hot_songs_div = scraped_objects.find_all('div',class_="hotsongs")
+    hot_songs = []
+    
+    for div in hot_songs_div:
+        links = div.find_all('a')
+        for a in links:
+            hot_songs.append(a.string)
+    return hot_songs
+

@@ -23,6 +23,9 @@ def main():
             tweet = get_tweet_string(artist, song_name, lyrics)
             print(tweet)
             print("\nFull song lyrics can't be tweeted")
+        elif  CONSOLE_ARGS.notwitter and CONSOLE_ARGS.hotsongs:            
+            hot_songs = get_hot_songs()
+            print(*hot_songs, sep="\n")
         elif CONSOLE_ARGS.notwitter:
             artist, song_name, lyrics = prepare_tweet_content()
             tweet = get_tweet_string(artist, song_name, lyrics)
