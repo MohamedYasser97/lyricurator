@@ -13,6 +13,7 @@ def _parse_arguments():
     parser.add_argument('-ls', '--listsongs', action= 'store_true', help='Prints all songs for the randomly selected artist or the one selected by the user')
     parser.add_argument('-i', '--interval', type=int, help='The interval in minutes between lyrics')
     parser.add_argument('-hs','--hotsongs',action='store_true', help='Gets the list of hot songs')
+    parser.add_argument('-hal','--hotalbums',action='store_true', help='Gets the list of hot albums')
 
     try:
         return parser.parse_args(), parser

@@ -26,6 +26,9 @@ def main():
         elif  CONSOLE_ARGS.notwitter and CONSOLE_ARGS.hotsongs:            
             hot_songs = get_hot_songs()
             print(*hot_songs, sep="\n")
+        elif  CONSOLE_ARGS.notwitter and CONSOLE_ARGS.hotalbums:            
+            hot_albums = get_hot_albums()
+            print(*hot_albums, sep="\n")
         elif CONSOLE_ARGS.notwitter:
             artist, song_name, lyrics = prepare_tweet_content()
             tweet = get_tweet_string(artist, song_name, lyrics)
