@@ -32,6 +32,7 @@ Then you can start lyricurator with the `-t/--twitter` argument and a tweet will
 - `-fs/--fullsong` prints the entire lyrics of a song to the console.
 - `-ls/--listsongs` lists all songs for random or user-selected artists.
 - `-i/--interval` prints/tweets lyrics at specified interval in minutes
+- `-hal/--hotalbums` prints a list of current hot albums.
 
 
 ## Want to contribute?
