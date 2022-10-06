@@ -237,3 +237,22 @@ def get_hot_songs():
             hot_songs.append(a.string)
     return hot_songs
 
+def get_hot_albums():
+    url = base_url
+    selected_agent = random.choice(user_agents)
+    req = requests.get(url, headers={'User-Agent': selected_agent})
+    
+    scraped_objects = bs4.BeautifulSoup(req.content, "html.parser")    
+    
+    hot_albums_div = scraped_objects.find_all('div',class_="hotalbums")
+    hot_albums = []
+    
+    for div in hot_albums_div:
+      album = div.text
+      album = album.replace(" \"", " - \"")
+      all_albums = album.split("\n")
+      for a in all_albums:  
+        if a != '':
+            hot_albums.append(a)
+      
+    return hot_albums
