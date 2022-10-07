@@ -1,9 +1,6 @@
-
-
 # Lyricurator
 
 A bot that scrapes the internet for song lyrics, song names and artists. This program can be either used as a CLI tool to add lyrics to your terminal, or it can be linked with a Twitter account and tweet lyrics automatically.
-
 
 ## Usage
 
@@ -23,8 +20,10 @@ Then you can start lyricurator with the `-t/--twitter` argument and a tweet will
 
 \* You can learn more about how to get your own Twitter application credentials by following [this guide](https://www.digitalocean.com/community/tutorials/how-to-create-a-twitter-app-with-python)'s first 2 steps.
 
-\* Note that it's mandatory to use one of `-nt` or `-t`. The rest of the CLI arguments are optional.
+\* Note that it's mandatory to use one of `-nt` ,`-la`,`-ls`,`-hs`,`-hal`,or `-t`. The rest of the CLI arguments are optional.
+
 #### CLI arguments you can use or combine:
+
 - `-t/--twitter` tweet lyrics to linked Twitter account in `auth.json`.
 - `-nt/--notwitter` prints lyrics to the console instead of tweeting them.
 - `-la/--listartists` gets a list of all available artists.
@@ -34,8 +33,6 @@ Then you can start lyricurator with the `-t/--twitter` argument and a tweet will
 - `-i/--interval` prints/tweets lyrics at specified interval in minutes
 - `-hal/--hotalbums` prints a list of current hot albums.
 
-
 ## Want to contribute?
 
 Check out [CONTRIBUTING.md](https://github.com/MohamedYasser97/lyricurator/blob/master/CONTRIBUTING.md) for instructions.
-
