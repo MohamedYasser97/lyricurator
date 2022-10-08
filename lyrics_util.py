@@ -47,10 +47,13 @@ user_agents = [
 ]
 
 
-def get_artists_links():
-    available_letters = list(string.ascii_lowercase)
-    available_letters.append('19')  # To get artists that start with a number
-    selected_letter = random.choice(available_letters)
+def get_artists_links(letter):
+    if (letter is None):
+        available_letters = list(string.ascii_lowercase)
+        available_letters.append('19')  # To get artists that start with a number
+        selected_letter = random.choice(available_letters)
+    else:
+        selected_letter = letter
 
     url = base_url + selected_letter + '.html'
     selected_agent = random.choice(user_agents)
@@ -216,8 +219,8 @@ def get_songs_from_artist(artist):
 
     return songs
 
-def get_artist_names():
-    artist_links = get_artists_links()
+def get_artist_names(selected_letter):
+    artist_links = get_artists_links(selected_letter)
     artist_names = [(x.rsplit('/',1)[1]).rsplit('.',1)[0] for x in artist_links]
     return artist_names
 
