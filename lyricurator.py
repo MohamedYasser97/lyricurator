@@ -9,7 +9,10 @@ from console_args import CONSOLE_ARGS, PARSER
 def main():
     """ Main program. """
     if CONSOLE_ARGS.listartists:
-        print(*get_artist_names(), sep='\n')
+        if len(CONSOLE_ARGS.listartists) >1:
+            print("Expected only one character")
+            return
+        print(*get_artist_names(CONSOLE_ARGS.listartists), sep='\n')
         sys.exit()
 
     try:

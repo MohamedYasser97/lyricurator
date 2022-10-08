@@ -26,7 +26,7 @@ Then you can start lyricurator with the `-t/--twitter` argument and a tweet will
 
 - `-t/--twitter` tweet lyrics to linked Twitter account in `auth.json`.
 - `-nt/--notwitter` prints lyrics to the console instead of tweeting them.
-- `-la/--listartists` gets a list of all available artists.
+- `-la/--listartists` gets a list of all available artists starting by a letter selected as argument.
 - `-a/--artist` specifies artist to get lyrics for.
 - `-fs/--fullsong` prints the entire lyrics of a song to the console.
 - `-ls/--listsongs` lists all songs for random or user-selected artists.

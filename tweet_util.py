@@ -6,7 +6,7 @@ from console_args import CONSOLE_ARGS
 def prepare_tweet_content(full_song=False):
     while True:
         time.sleep(3)
-        artists = get_artists_links()
+        artists = get_artists_links(None)
 
         if not artists:
             continue
