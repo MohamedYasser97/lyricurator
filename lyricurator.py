@@ -1,4 +1,5 @@
 import json
+import requests
 import tweepy
 import sys
 from datetime import datetime
